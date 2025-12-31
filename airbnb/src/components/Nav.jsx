@@ -1,11 +1,15 @@
-import React from "react";
 import logo from "../assets/airbnb-logo.svg";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Nav = () => {
   const [iconRed, setIconRed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+
+  const inputRef = useRef(null);
+  const handleInputFocus = () => {
+    inputRef.current.focus();
+  };
 
   return (
     <nav className=" flex justify-between items-center bg-white py-4 px-5 font-[poppins] shadow-md fixed w-full top-0 left-0 ">
@@ -43,6 +47,7 @@ const Nav = () => {
       <div className="md:hidden max-md:flex max-md:justify-center max-md:items-center max-md:flex-1 px-8 py-4 max-md:text-sm fixed w-full top-0 left-0 z-[1000] bg-white shadow-md">
         <img src={logo} alt="" className="w-8 mr-2" />
         <input
+          ref={inputRef}
           type="text"
           placeholder="Start your search"
           className="shadow-md px-2 py-4 rounded-full max-md:w-full text-center"
@@ -72,14 +77,12 @@ const Nav = () => {
       </div>
 
       {/* NAV AT BOTTOM */}
-      <div className="bg-white fixed left-1/2 -translate-x-1/2 w-[80%] h-auto shadow-xl z-[1000] border-gray-400 bottom-5 rounded-full py-2 max-md:text-sm text-gray-600  md:hidden">
+      <div className="bg-white shadow-inner fixed left-1/2 -translate-x-1/2 w-[80%] h-auto shadow-xl z-[1000] border-gray-400 bottom-5 rounded-full py-2 max-md:text-sm text-gray-600  md:hidden">
         <div className="flex justify-center items-center gap-6">
           <div className="block text-center">
             <i
-              onClick={() => setIconRed(!iconRed)}
-              className={`fa-solid fa-magnifying-glass cursor-pointer hover:scale-[1.2] transition-all duration-300 text-xl ${
-                iconRed ? "text-red-500" : ""
-              }`}
+              onClick={handleInputFocus}
+              className={`fa-solid fa-magnifying-glass cursor-pointer hover:scale-[1.2] transition-all duration-300 text-xl `}
             ></i>
             <p>Explore</p>
           </div>
@@ -135,7 +138,7 @@ const Nav = () => {
       {/* menu to be toggled by the globe icon */}
 
       <div
-        className={`bg-white w-[50rem] h-[30rem] rounded-lg shadow-xl px-4 py-8 absolute top-[10rem]  left-1/2 -translate-x-1/2 z-[1000] transition-all duration-200 max-md:hidden ${
+        className={`bg-white w-[50rem] h-[30rem] border border-gray-200 rounded-lg shadow-xl px-4 py-8 absolute top-[10rem]  left-1/2 -translate-x-1/2 z-[1000] transition-all duration-200 shadow-inner max-md:hidden ${
           langMenuOpen
             ? "translate-y-0 opacity-100"
             : "translate-y-5 opacity-0 pointer-events-none"

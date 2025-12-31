@@ -2,6 +2,8 @@ import React from "react";
 import Nav from "./components/Nav";
 import Cards from "./components/Cards";
 import Title from "./components/Title";
+import Footer from "./components/Footer";
+import "./App.css";
 import img1 from "./assets/1.avif";
 import img2 from "./assets/2.avif";
 import img3 from "./assets/3.avif";
@@ -189,62 +191,72 @@ const App = () => {
       <Nav />
       <Title city="Ayawaso West" />
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-8 py-10">
+      <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  gap-6  px-8 py-10 scrollbar-hide">
         {cardsData.map((card) => (
-          <Cards
-            key={card.id}
-            img={card.img}
-            title={card.title}
-            price={card.price}
-            ratings={card.ratings}
-          />
+          <div className="min-w-[250px] sm:min-w-0">
+            <Cards
+              key={card.id}
+              img={card.img}
+              title={card.title}
+              price={card.price}
+              ratings={card.ratings}
+            />
+          </div>
         ))}
       </div>
 
       {/* ........................................ */}
 
       <Title city="Takoradi" />
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-8 py-10">
+      <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-8 py-10 scrollbar-hide">
         {cardsData2.map((card) => (
-          <Cards
-            key={card.id}
-            img={card.img}
-            title={card.title}
-            price={card.price}
-            ratings={card.ratings}
-          />
+          <div className="min-w-[250px] sm:min-w-0">
+            <Cards
+              key={card.id}
+              img={card.img}
+              title={card.title}
+              price={card.price}
+              ratings={card.ratings}
+            />
+          </div>
         ))}
       </div>
 
       {/* ........................................ */}
 
       <Title city="Kumasi " />
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-8 py-10">
+      <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-8 py-10 scrollbar-hide">
         {cardsData3.map((card) => (
-          <Cards
-            key={card.id}
-            img={card.img}
-            title={card.title}
-            price={card.price}
-            ratings={card.ratings}
-          />
+          <div className="min-w-[250px] sm:min-w-0">
+            <Cards
+              key={card.id}
+              img={card.img}
+              title={card.title}
+              price={card.price}
+              ratings={card.ratings}
+            />
+          </div>
         ))}
       </div>
 
       {/* ........................................ */}
 
       <Title city="Dubai " />
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-8 py-10">
+      <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-8 py-10 scrollbar-hide">
         {cardsData4.map((card) => (
-          <Cards
-            key={card.id}
-            img={card.img}
-            title={card.title}
-            price={card.price}
-            ratings={card.ratings}
-          />
+          <div className="min-w-[250px] sm:min-w-0">
+            <Cards
+              key={card.id}
+              img={card.img}
+              title={card.title}
+              price={card.price}
+              ratings={card.ratings}
+            />
+          </div>
         ))}
       </div>
+
+      <Footer />
     </div>
   );
 };

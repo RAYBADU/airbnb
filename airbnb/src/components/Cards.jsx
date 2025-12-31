@@ -2,7 +2,7 @@ import React from "react";
 
 const Cards = ({ img, title, price, ratings }) => {
   return (
-    <section className="mt-5 container mx-auto">
+    <section className="mt-5 container mx-auto bg-white">
       {/* Card */}
       <div className=" rounded-xl w-full h-auto mt-4  mx-auto ">
         <img src={img} alt="img" className="rounded-xl w-full h-52" />
